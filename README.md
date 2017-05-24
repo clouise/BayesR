@@ -1,2 +1,2 @@
 # BayesR
-Various Bayes Algorithms Within R
+# Various Bayes Algorithms Within R
