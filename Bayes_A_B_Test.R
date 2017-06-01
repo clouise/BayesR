@@ -7,9 +7,9 @@ hist(pA)
 hist(pB)
 
 generative_model <- function(pA, pB) {
-  subcribersA <- rbinom(1, 16, pA)
-  subcribersB <- rbinom(1, 16, pB)
-  c(subcribersA = subcribersA, subcribersB = subcribersB)
+  A <- rbinom(1, 16, pA)
+  B <- rbinom(1, 16, pB)
+  c(A = A, B = B)
 }
 
 
@@ -17,8 +17,8 @@ sim_data <- as.data.frame(t(sapply(1:n_draws, function(i) {
   generative_model(pA[i], pB[i])
 })))
 
-pAposterior <- pA[sim_data$subcribersA == 4 & sim_data$subcribersB == 8] 
-pBposterior <- pB[sim_data$subcribersA == 4 & sim_data$subcribersB == 8] 
+pAposterior <- pA[sim_data$A == 4 & sim_data$B == 8] 
+pBposterior <- pB[sim_data$A == 4 & sim_data$B == 8] 
 
 posterior <- as.data.frame(cbind(pAposterior,pBposterior))
 names(posterior) <- c("pA","pB")
